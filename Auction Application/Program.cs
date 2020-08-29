@@ -2,12 +2,12 @@
 // Todor Radu Constantin
 // </copyright>
 
-using Auction_Application.DataMappers;
-using System;
-using System.Linq;
-
 namespace Auction_Application
 {
+    using System;
+    using System.Linq;
+    using Auction_Application.DataMappers;
+
     /// <summary>
     /// Defines the <see cref="Program" />.
     /// </summary>

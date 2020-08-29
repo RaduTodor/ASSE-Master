@@ -20,6 +20,7 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsof
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Logging.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Buffers.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Collections.Immutable.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.ComponentModel.Annotations.dll
@@ -47,6 +48,8 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsof
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Options.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.pdb
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Buffers.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Collections.Immutable.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Diagnostics.DiagnosticSource.xml
@@ -58,7 +61,3 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction 
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csproj.CopyComplete
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.exe
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.pdb
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.dll
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.pdb
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.xml
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csprojAssemblyReference.cache

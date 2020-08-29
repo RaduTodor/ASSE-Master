@@ -60,6 +60,9 @@ namespace Auction_Application.DomainModels.Validators
             RuleFor(x => x.Person).Must(this.AuctionsUnfinished).WithErrorCode("The user has too many auctions not yet finished.");
         }
 
+        /// <summary>
+        /// The UpdateValidator.
+        /// </summary>
         public void UpdateValidator()
         {
             RuleFor(x => x.DATE_END).GreaterThan(DateTime.Now).WithErrorCode("The auction has been finished and cannot be modified anymore.");

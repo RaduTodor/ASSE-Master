@@ -137,7 +137,6 @@
   <ItemGroup>
     <Compile Include="Constants\ConfigurationIdentifiers.cs" />
     <Compile Include="Constants\RolesIdentifiers.cs" />
-    <Compile Include="DataMappers\ApplicationContext.cs" />
     <Compile Include="DataMappers\Interfaces\IDaoFactory.cs" />
     <Compile Include="DataMappers\Interfaces\IScore_HistoryDataService.cs" />
     <Compile Include="DataMappers\Interfaces\IRoleDataService.cs" />

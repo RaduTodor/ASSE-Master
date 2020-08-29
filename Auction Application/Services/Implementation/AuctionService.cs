@@ -111,6 +111,7 @@ namespace Auction_Application.Services.Implementation
         public bool UpdateAuction(Auction auction)
         {
             var validator = new AuctionValidator();
+            validator.UpdateValidator();
             ValidationResult results = validator.Validate(auction);
 
             bool isValid = results.IsValid;
