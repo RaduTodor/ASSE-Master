@@ -206,6 +206,7 @@
     <Compile Include="Services\Interfaces\IAuctionService.cs" />
     <Compile Include="Tests\DataMapperTests\AuctionHistoryDataServiceTests.cs" />
     <Compile Include="Tests\DataMapperTests\CategoryDataServiceTests.cs" />
+    <Compile Include="Tests\DataMapperTests\ScoreHistoryDataServiceTests.cs" />
     <Compile Include="Tests\DataMapperTests\RoleDataServiceTests.cs" />
     <Compile Include="Tests\DataMapperTests\ProductDataServiceTests.cs" />
     <Compile Include="Tests\DataMapperTests\PersonDataServiceTests.cs" />
@@ -219,6 +220,14 @@
     <Compile Include="Tests\DomainModelTests\ConfigurationTests.cs" />
     <Compile Include="Tests\DomainModelTests\CategoryTests.cs" />
     <Compile Include="Tests\DomainModelTests\AuctionTests.cs" />
+    <Compile Include="Tests\ServiceTests\AuctionServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\AuctionHistoryServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\ConfigurationServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\CategoryServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\ScoreHistoryServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\RoleServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\ProductServiceTests.cs" />
+    <Compile Include="Tests\ServiceTests\PersonServiceTests.cs" />
     <Compile Include="Utility\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>

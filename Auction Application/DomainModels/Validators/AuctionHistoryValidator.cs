@@ -39,7 +39,7 @@ namespace Auction_Application.DomainModels.Validators
         /// </summary>
         public void InsertValidator()
         {
-            RuleFor(x => x.CURRENCY).Equal(x => x.Auction.CURRENCY).WithErrorCode("The currency must be the same as the auction currency.");
+            RuleFor(x => x).Must(x => this.SameCurrency(x.CURRENCY, x.Auction)).WithErrorCode("The currency must be the same as the auction currency.");
             RuleFor(x => x.Person).Must(this.IsUserBuyer).WithErrorCode("The user must be a buyer.");
             RuleFor(x => x).Must(x => this.IsOfferValid(x.OFFER, x.Auction)).WithErrorCode("The offer was invalid.");
         }
@@ -52,8 +52,19 @@ namespace Auction_Application.DomainModels.Validators
         /// <returns>The <see cref="bool"/>.</returns>
         private bool IsOfferValid(decimal offer, Auction auction)
         {
-            var lastOffer = this.auctionHistoryService.GetListOfAuctionHistories().LastOrDefault(a => a.AUCTION_ID == auction.ID).OFFER;
-            if (offer > lastOffer && offer < (lastOffer * 11) / 10)
+            if (auction == null)
+            {
+                return false;
+            }
+
+            var lastOffer = this.auctionHistoryService.GetListOfAuctionHistories().LastOrDefault(a => a.AUCTION_ID == auction.ID);
+            var lastOfferValue = auction.START_PRICE;
+            if (lastOffer != null)
+            {
+                lastOfferValue = lastOffer.OFFER;
+            }
+
+            if (offer > lastOfferValue && offer < (lastOfferValue * 11) / 10)
             {
                 return true;
             }
@@ -68,7 +79,23 @@ namespace Auction_Application.DomainModels.Validators
         /// <returns>The <see cref="bool"/>.</returns>
         private bool IsUserBuyer(Person person)
         {
-            if (person.Role.NAME != RolesIdentifiers.BuyerTitle)
+            if (person == null || person.Role.NAME != RolesIdentifiers.BuyerTitle)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// The SameCurrency.
+        /// </summary>
+        /// <param name="currency">The currency<see cref="string"/>.</param>
+        /// <param name="auction">The auction<see cref="Auction"/>.</param>
+        /// <returns>The <see cref="bool"/>.</returns>
+        private bool SameCurrency(string currency, Auction auction)
+        {
+            if (auction == null || currency != auction.CURRENCY)
             {
                 return false;
             }

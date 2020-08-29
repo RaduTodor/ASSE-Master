@@ -106,7 +106,7 @@ namespace Auction_Application.DomainModels.Validators
         /// <returns>The <see cref="bool"/>.</returns>
         private bool IsPersonAllowedToAdd(Person person)
         {
-            if (person.Role.NAME != RolesIdentifiers.SellerTitle)
+            if (person == null || person.Role.NAME != RolesIdentifiers.SellerTitle)
             {
                 return false;
             }

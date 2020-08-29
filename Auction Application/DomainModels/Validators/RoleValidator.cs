@@ -16,6 +16,7 @@ namespace Auction_Application.DomainModels.Validators
         /// </summary>
         public RoleValidator()
         {
+            RuleFor(x => x.NAME).NotEmpty().WithErrorCode("This field is required.");
             RuleFor(x => x.NAME).Length(2, 50).WithErrorCode("The role name size is not correct.");
         }
     }

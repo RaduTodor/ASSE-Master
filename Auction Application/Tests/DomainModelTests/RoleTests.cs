@@ -105,6 +105,20 @@ namespace ASSE_Restanta.DomainModelTests
         }
 
         /// <summary>
+        /// The TestRoleValidatorWithInvalidValues3.
+        /// </summary>
+        [Test]
+        public void TestRoleValidatorWithInvalidValues3()
+        {
+            Role test = new Role();
+            RoleValidator validator = new RoleValidator();
+            var results = validator.Validate(test);
+
+            bool isValid = results.IsValid;
+            Assert.IsFalse(isValid);
+        }
+
+        /// <summary>
         /// The TestProperties.
         /// </summary>
         [Test]
