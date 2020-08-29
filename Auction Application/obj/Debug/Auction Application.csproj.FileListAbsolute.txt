@@ -61,3 +61,8 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction 
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csproj.CopyComplete
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.exe
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.pdb
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Castle.Core.dll
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Moq.dll
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Castle.Core.xml
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Moq.xml
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csprojAssemblyReference.cache
