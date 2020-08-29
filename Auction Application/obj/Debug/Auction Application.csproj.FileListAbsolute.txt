@@ -54,8 +54,11 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.M
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csprojAssemblyReference.cache
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csproj.CoreCompileInputs.cache
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csproj.CopyComplete
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.exe
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.pdb
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.dll
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.pdb
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.xml
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csprojAssemblyReference.cache

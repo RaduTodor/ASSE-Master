@@ -31,6 +31,7 @@ namespace Auction_Application.DomainModels.Validators
             RuleFor(x => x.Person).NotEmpty().WithErrorCode("This field is required.");
             RuleFor(x => x.DATE_CREATION).NotEmpty().WithErrorCode("This field is required.");
             RuleFor(x => x.OFFER).NotEmpty().WithErrorCode("This field is required.");
+            RuleFor(x => x.OFFER).GreaterThan(0).WithErrorCode("Offer must be positive.");
         }
 
         /// <summary>

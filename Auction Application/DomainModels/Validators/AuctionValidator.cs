@@ -47,7 +47,8 @@ namespace Auction_Application.DomainModels.Validators
             RuleFor(x => x.DATE_END).NotEmpty().WithErrorCode("This field is required.");
             RuleFor(x => x.START_PRICE).NotEmpty().WithErrorCode("This field is required.");
             RuleFor(x => x.CURRENCY).Length(2, 50).WithErrorCode("The name size of currency is not correct.");
-            RuleFor(x => x.DATE_END).GreaterThan(DateTime.Now).WithErrorCode("The auction has been finished and cannot be modified anymore.");
+            RuleFor(x => x).Must(args => this.IsEndDateValid(args.DATE_END, args.DATE_START)).WithErrorCode("The date range is not correct.");
+            RuleFor(x => x.START_PRICE).Must(this.IsStartPriceValid).WithErrorCode("The price set is too low.");
         }
 
         /// <summary>
@@ -57,8 +58,11 @@ namespace Auction_Application.DomainModels.Validators
         {
             RuleFor(x => x.Person).Must(this.IsPersonAllowedToAdd).WithErrorCode("The user is not allwed to add an auction.");
             RuleFor(x => x.Person).Must(this.AuctionsUnfinished).WithErrorCode("The user has too many auctions not yet finished.");
-            RuleFor(x => x).Must(args => this.IsEndDateValid(args.DATE_END, args.DATE_START)).WithErrorCode("The date range is not correct.");
-            RuleFor(x => x.START_PRICE).Must(this.IsStartPriceValid).WithErrorCode("The price set is too low.");
+        }
+
+        public void UpdateValidator()
+        {
+            RuleFor(x => x.DATE_END).GreaterThan(DateTime.Now).WithErrorCode("The auction has been finished and cannot be modified anymore.");
         }
 
         /// <summary>

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test Project", "ASSE Restanta\Test Project.csproj", "{D0368678-F337-43B4-BD45-253E26B42539}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7D3FF710-F4A9-48D9-BC71-9F1C2A5D2D95} = {7D3FF710-F4A9-48D9-BC71-9F1C2A5D2D95}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auction Application", "Auction Application\Auction Application.csproj", "{7D3FF710-F4A9-48D9-BC71-9F1C2A5D2D95}"
 EndProject

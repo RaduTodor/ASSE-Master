@@ -5,22 +5,22 @@
 namespace Auction_Application.DataMappers
 {
     using Auction_Application.DomainModels;
-    using Microsoft.EntityFrameworkCore;
+    using System.Data.Entity;
 
     /// <summary>
     /// Defines the <see cref="ApplicationContext" />.
     /// </summary>
-    public class ApplicationContext : System.Data.Entity.DbContext
+    public class ApplicationContext1 : DbContext
     {
         /// <summary>
         /// Defines the Log.
         /// </summary>
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(ApplicationContext));
+        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(ApplicationContext1));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationContext"/> class.
         /// </summary>
-        public ApplicationContext() : base("FinalModel")
+        public ApplicationContext1() : base("FinalModel")
         {
             Log.Info("ApplicationContext instance created!");
         }

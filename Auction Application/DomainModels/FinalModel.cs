@@ -2,20 +2,21 @@
 // Todor Radu Constantin
 // </copyright>
 
-namespace Auction_Application.DomainModels
+namespace Auction_Application.DataMappers
 {
+    using Auction_Application.DomainModels;
     using System.Data.Entity;
 
     /// <summary>
     /// Defines the <see cref="FinalModel" />.
     /// </summary>
-    public partial class FinalModel : DbContext
+    public partial class ApplicationContext : DbContext
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FinalModel"/> class.
         /// </summary>
-        public FinalModel()
-            : base("name=FinalModel")
+        public ApplicationContext()
+            : base("FinalModel")
         {
         }
 

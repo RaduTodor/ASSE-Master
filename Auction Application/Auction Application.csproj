@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -93,6 +94,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.7.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.7\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -132,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\ConfigurationIdentifiers.cs" />
+    <Compile Include="Constants\RolesIdentifiers.cs" />
     <Compile Include="DataMappers\ApplicationContext.cs" />
     <Compile Include="DataMappers\Interfaces\IDaoFactory.cs" />
     <Compile Include="DataMappers\Interfaces\IScore_HistoryDataService.cs" />
@@ -156,12 +161,6 @@
     <Compile Include="DomainModels\Category.cs" />
     <Compile Include="DomainModels\Configuration.cs" />
     <Compile Include="DomainModels\FinalModel.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-    <Compile Include="DomainModels\Model1.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
-    <Compile Include="DomainModels\Model2.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="DomainModels\Person.cs" />
@@ -199,6 +198,15 @@
     <Compile Include="Services\Interfaces\IConfigurationService.cs" />
     <Compile Include="Services\Interfaces\ICategoryService.cs" />
     <Compile Include="Services\Interfaces\IAuctionService.cs" />
+    <Compile Include="Tests\DomainModelTests\AuctionHistoryTests.cs" />
+    <Compile Include="Tests\DomainModelTests\ScoreHistoryTests.cs" />
+    <Compile Include="Tests\DomainModelTests\RoleTests.cs" />
+    <Compile Include="Tests\DomainModelTests\ProductTests.cs" />
+    <Compile Include="Tests\DomainModelTests\PersonTests.cs" />
+    <Compile Include="Tests\DomainModelTests\ConfigurationTests.cs" />
+    <Compile Include="Tests\DomainModelTests\CategoryTests.cs" />
+    <Compile Include="Tests\DomainModelTests\AuctionTests.cs" />
+    <Compile Include="Utility\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -213,6 +221,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
