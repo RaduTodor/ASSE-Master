@@ -27,8 +27,8 @@ namespace ASSE_Restanta.Tests.ServiceTests
             Auction auction = new Auction()
             {
                 CURRENCY = "Euro",
-                Person = new Person { ID = 1, FIRST_NAME = "Radu", LAST_NAME = "Todor", Role = new Role { ID = 1 }, SCORE = 9.00m, ROLE_ID = 1 },
-                Product = new Product { ID = 2, NAME = "Telefon", Category = new Category { ID = 2 }, PARENT_CATEGORY_ID = 2 },
+                Person = new Person { ID = 1, FIRST_NAME = "Radu", LAST_NAME = "Todor", Role = new Role { ID = 1, NAME = "Seller" }, SCORE = 9.00m, ROLE_ID = 1 },
+                Product = new Product { ID = 2, NAME = "Telefon", Category = new Category { ID = 2, NAME = "Dispozitive mici", PARENT_CATEGORY_ID = 1 }, PARENT_CATEGORY_ID = 2 },
                 DATE_START = DateTime.Now,
                 DATE_END = DateTime.Now.AddDays(20),
                 START_PRICE = 12,
@@ -251,6 +251,39 @@ namespace ASSE_Restanta.Tests.ServiceTests
 
             IAuctionService auctionServices = new AuctionService();
             Assert.Throws<ArgumentNullException>(() => auctionServices.UpdateAuction(auction));
+        }
+
+        /// <summary>
+        /// The EndAuctionManually.
+        /// </summary>
+        [Test]
+        public void EndAuctionManually()
+        {
+            Person person = new Person()
+            {
+                ID = 1,
+                FIRST_NAME = "Radu",
+                LAST_NAME = "Todor",
+                Role = new Role { ID = 1, NAME = "Seller" },
+                ROLE_ID = 1,
+                SCORE = 2.5m,
+            };
+
+            Auction auction = new Auction()
+            {
+                CURRENCY = "Euro",
+                Person = person,
+                Product = new Product { ID = 2, NAME = "Telefon", Category = new Category { ID = 2, NAME = "Dispozitive mici", PARENT_CATEGORY_ID = 1 }, PARENT_CATEGORY_ID = 2 },
+                DATE_START = DateTime.Now,
+                DATE_END = DateTime.Now.AddDays(20),
+                START_PRICE = 12,
+                OWNER_ID = 1,
+                PRODUCT_ID = 2,
+                ID = 27,
+            };
+
+            IAuctionService auctionServices = new AuctionService();
+            Assert.IsTrue(auctionServices.EndAuctionManually(auction, person));
         }
     }
 }

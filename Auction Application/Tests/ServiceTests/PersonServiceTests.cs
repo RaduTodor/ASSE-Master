@@ -28,7 +28,7 @@ namespace ASSE_Restanta.Tests.ServiceTests
             {
                 FIRST_NAME = "Radu",
                 LAST_NAME = "Todor",
-                Role = new Role { ID = 2 },
+                Role = new Role { ID = 1 },
                 SCORE = 2.5m,
             };
 
@@ -208,7 +208,7 @@ namespace ASSE_Restanta.Tests.ServiceTests
             Person person = null;
 
             IPersonService personServices = new PersonService();
-            Assert.Throws<NullReferenceException>(() => personServices.AddPerson(person));
+            Assert.Throws<ArgumentNullException>(() => personServices.AddPerson(person));
         }
 
         /// <summary>
@@ -233,6 +233,27 @@ namespace ASSE_Restanta.Tests.ServiceTests
 
             IPersonService personServices = new PersonService();
             Assert.Throws<ArgumentNullException>(() => personServices.UpdatePerson(person));
+        }
+
+        /// <summary>
+        /// The TestRatePerson.
+        /// </summary>
+        [Test]
+        public void TestRatePerson()
+        {
+            Person person = new Person()
+            {
+                ID = 1,
+                FIRST_NAME = "Radu",
+                LAST_NAME = "Todor",
+                Role = new Role { ID = 1 },
+                ROLE_ID = 1,
+                SCORE = 2.5m,
+            };
+
+            IPersonService personServices = new PersonService();
+            var rateResult = personServices.RatePerson(person, 5);
+            Assert.IsTrue(rateResult);
         }
     }
 }

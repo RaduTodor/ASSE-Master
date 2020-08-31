@@ -5,9 +5,11 @@
 namespace ASSE_Restanta.DataMapperTests
 {
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
     using Moq;
     using NUnit.Framework;
+    using NUnit.Framework.Internal;
 
     /// <summary>
     /// Defines the <see cref="PersonDataServiceTests" />.
@@ -29,6 +31,36 @@ namespace ASSE_Restanta.DataMapperTests
             obj.AddPerson(person);
 
             mock.Verify(o => o.AddPerson(person), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddPersonImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddPersonImplementationTest()
+        {
+            Person person = new Person
+            {
+                FIRST_NAME = "Radu",
+                LAST_NAME = "Todor",
+                Role = new Role { ID = 2 },
+                SCORE = 2.5m,
+            };
+
+            PersonDataService service = new PersonDataService();
+            try
+            {
+                service.AddPerson(person);
+                person.FIRST_NAME = "Vlad";
+                service.UpdatePerson(person);
+                var people = service.GetAllPeople();
+                var samePerson = service.GetPersonById(person.ID);
+                service.DeletePerson(person);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         /// <summary>

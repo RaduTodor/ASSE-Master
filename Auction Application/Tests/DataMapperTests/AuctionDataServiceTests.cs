@@ -4,7 +4,9 @@
 
 namespace ASSE_Restanta.DataMapperTests
 {
+    using System;
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
     using Moq;
     using NUnit.Framework;
@@ -93,6 +95,40 @@ namespace ASSE_Restanta.DataMapperTests
             obj.GetAuctionById(1);
 
             mock.Verify(o => o.GetAuctionById(1), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddAuctionImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddAuctionImplementationTest()
+        {
+            Auction auction = new Auction()
+            {
+                CURRENCY = "Euro",
+                Person = new Person { ID = 1, FIRST_NAME = "Radu", LAST_NAME = "Todor", Role = new Role { ID = 1, NAME = "Seller" }, SCORE = 9.00m, ROLE_ID = 1 },
+                Product = new Product { ID = 2, NAME = "Telefon", Category = new Category { ID = 2, NAME = "Dispozitive mici", PARENT_CATEGORY_ID = 1 }, PARENT_CATEGORY_ID = 2 },
+                DATE_START = DateTime.Now,
+                DATE_END = DateTime.Now.AddDays(20),
+                START_PRICE = 12,
+                OWNER_ID = 1,
+                PRODUCT_ID = 2,
+            };
+
+            AuctionDataService service = new AuctionDataService();
+            try
+            {
+                service.AddAuction(auction);
+                auction.CURRENCY = "USD";
+                service.UpdateAuction(auction);
+                var people = service.GetAllAuctions();
+                var samePerson = service.GetAuctionById(auction.ID);
+                service.DeleteAuction(auction);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

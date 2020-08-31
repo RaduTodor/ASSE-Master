@@ -5,6 +5,7 @@
 namespace ASSE_Restanta.DataMapperTests
 {
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
     using Moq;
     using NUnit.Framework;
@@ -93,6 +94,34 @@ namespace ASSE_Restanta.DataMapperTests
             obj.GetProductById(1);
 
             mock.Verify(o => o.GetProductById(1), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddProductImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddProductImplementationTest()
+        {
+            Product product = new Product
+            {
+                NAME = "Photocamera",
+                Category = new Category { ID = 2, NAME = "Dispozitive mici" },
+            };
+
+            ProductDataService service = new ProductDataService();
+            try
+            {
+                service.AddProduct(product);
+                product.NAME = "Phone";
+                service.UpdateProduct(product);
+                var people = service.GetAllProducts();
+                var sameProduct = service.GetProductById(product.ID);
+                service.DeleteProduct(product);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

@@ -41,6 +41,7 @@ namespace Auction_Application.DomainModels.Validators
         {
             RuleFor(x => x).Must(x => this.SameCurrency(x.CURRENCY, x.Auction)).WithErrorCode("The currency must be the same as the auction currency.");
             RuleFor(x => x.Person).Must(this.IsUserBuyer).WithErrorCode("The user must be a buyer.");
+            RuleFor(x => x).Must(x => this.IsOwnerSelfOffering(x.Auction, x.Person)).WithErrorCode("Owner can't offer himself. This is not money laundering.");
             RuleFor(x => x).Must(x => this.IsOfferValid(x.OFFER, x.Auction)).WithErrorCode("The offer was invalid.");
         }
 
@@ -57,7 +58,8 @@ namespace Auction_Application.DomainModels.Validators
                 return false;
             }
 
-            var lastOffer = this.auctionHistoryService.GetListOfAuctionHistories().LastOrDefault(a => a.AUCTION_ID == auction.ID);
+            var allAuctionHistories = this.auctionHistoryService.GetListOfAuctionHistories();
+            var lastOffer = allAuctionHistories.LastOrDefault(a => a.AUCTION_ID == auction.ID);
             var lastOfferValue = auction.START_PRICE;
             if (lastOffer != null)
             {
@@ -96,6 +98,22 @@ namespace Auction_Application.DomainModels.Validators
         private bool SameCurrency(string currency, Auction auction)
         {
             if (auction == null || currency != auction.CURRENCY)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// The IsUserBuyer.
+        /// </summary>
+        /// <param name="auction">The auction<see cref="Auction"/>.</param>
+        /// <param name="person">The person<see cref="Person"/>.</param>
+        /// <returns>The <see cref="bool"/>.</returns>
+        private bool IsOwnerSelfOffering(Auction auction, Person person)
+        {
+            if (auction == null || person == null || auction.OWNER_ID == person.ID)
             {
                 return false;
             }

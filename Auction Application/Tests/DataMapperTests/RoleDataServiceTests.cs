@@ -5,6 +5,7 @@
 namespace ASSE_Restanta.DataMapperTests
 {
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
     using Moq;
     using NUnit.Framework;
@@ -93,6 +94,33 @@ namespace ASSE_Restanta.DataMapperTests
             obj.GetRoleById(1);
 
             mock.Verify(o => o.GetRoleById(1), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddRoleImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddRoleImplementationTest()
+        {
+            Role role = new Role
+            {
+                NAME = "Buyer",
+            };
+
+            RoleDataService service = new RoleDataService();
+            try
+            {
+                service.AddRole(role);
+                role.NAME = "Host";
+                service.UpdateRole(role);
+                var people = service.GetAllRoles();
+                var sameRole = service.GetRoleById(role.ID);
+                service.DeleteRole(role);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

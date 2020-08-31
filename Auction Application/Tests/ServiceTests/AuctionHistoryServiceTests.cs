@@ -27,8 +27,18 @@ namespace ASSE_Restanta.Tests.ServiceTests
             Auction_History auctionHistory = new Auction_History()
             {
                 CURRENCY = "Euro",
-                Person = new Person { ID = 1, Role = new Role { NAME = "Buyer" } },
-                Auction = new Auction { ID = 1, CURRENCY = "Euro", START_PRICE = 490 },
+                Person = new Person { ID = 1, FIRST_NAME = "Radu", LAST_NAME = "Todor", Role = new Role { ID = 2, NAME = "Buyer" }, SCORE = 9.00m, ROLE_ID = 2 },
+                Auction = new Auction
+                {
+                    CURRENCY = "Euro",
+                    Person = new Person { ID = 2, FIRST_NAME = "Radu", LAST_NAME = "Todor", Role = new Role { ID = 1, NAME = "Seller" }, SCORE = 9.00m, ROLE_ID = 1 },
+                    Product = new Product { ID = 2, NAME = "Telefon", Category = new Category { ID = 2, NAME = "Dispozitive mici", PARENT_CATEGORY_ID = 1 }, PARENT_CATEGORY_ID = 2 },
+                    DATE_START = DateTime.Now,
+                    DATE_END = DateTime.Now.AddDays(20),
+                    START_PRICE = 490,
+                    OWNER_ID = 2,
+                    PRODUCT_ID = 2,
+                },
                 DATE_CREATION = DateTime.Now,
                 OFFER = 500,
             };
@@ -243,6 +253,57 @@ namespace ASSE_Restanta.Tests.ServiceTests
 
             IAuctionHistoryService auctionHistoryServices = new AuctionHistoryService();
             Assert.Throws<ArgumentNullException>(() => auctionHistoryServices.UpdateAuctionHistory(auctionHistory));
+        }
+
+        /// <summary>
+        /// The TestPlaceOfferValid.
+        /// </summary>
+        [Test]
+        public void TestPlaceOffer()
+        {
+            Person person = new Person()
+            {
+                ID = 1,
+                FIRST_NAME = "Radu",
+                LAST_NAME = "Todor",
+                Role = new Role { ID = 2, NAME = "Buyer" },
+                ROLE_ID = 2,
+                SCORE = 2.5m,
+            };
+
+            var auctionOwner = new Person()
+            {
+                ID = 2,
+                FIRST_NAME = "Radu",
+                LAST_NAME = "Todor",
+                Role = new Role { ID = 2, NAME = "Seller" },
+                ROLE_ID = 1,
+                SCORE = 2.5m,
+            };
+
+            Auction auction = new Auction()
+            {
+                CURRENCY = "Euro",
+                Person = auctionOwner,
+                Product = new Product { ID = 2, NAME = "Telefon", Category = new Category { ID = 2, NAME = "Dispozitive mici", PARENT_CATEGORY_ID = 1 }, PARENT_CATEGORY_ID = 2 },
+                DATE_START = DateTime.Now,
+                DATE_END = DateTime.Now.AddDays(20),
+                START_PRICE = 12,
+                OWNER_ID = 2,
+                PRODUCT_ID = 2,
+            };
+
+            IAuctionHistoryService personServices = new AuctionHistoryService();
+            var placeOfferResult = personServices.PlaceOffer(person, auction, "Euro", 13);
+            var placeOfferInvalidResult = personServices.PlaceOffer(person, auction, "Euro", 30);
+            Assert.IsTrue(placeOfferResult);
+            auction.ID = 26;
+            var placeOfferSameValueSameAuctionResult = personServices.PlaceOffer(person, auction, "Euro", 13);
+            Assert.IsFalse(placeOfferSameValueSameAuctionResult);
+            Assert.IsFalse(placeOfferInvalidResult);
+            auction.DATE_END = DateTime.Now.AddMinutes(-1);
+            var placeOfferInvalidResultExpiredAuction = personServices.PlaceOffer(person, auction, "Euro", 15);
+            Assert.IsFalse(placeOfferInvalidResultExpiredAuction);
         }
     }
 }

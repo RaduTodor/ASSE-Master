@@ -5,7 +5,9 @@
 namespace ASSE_Restanta.DataMapperTests
 {
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
+    using Auction_Application.Utility;
     using Moq;
     using NUnit.Framework;
 
@@ -93,6 +95,35 @@ namespace ASSE_Restanta.DataMapperTests
             obj.GetConfigurationById("test");
 
             mock.Verify(o => o.GetConfigurationById("test"), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddConfigurationImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddConfigurationImplementationTest()
+        {
+            var randomConfigIdValue = RandomGenerators.RandomString(10);
+            Configuration configuration = new Configuration()
+            {
+                ID = randomConfigIdValue,
+                VALUE = 5000,
+            };
+
+            ConfigurationDataService service = new ConfigurationDataService();
+            try
+            {
+                service.AddConfiguration(configuration);
+                configuration.VALUE = 624;
+                service.UpdateConfiguration(configuration);
+                var people = service.GetAllConfigurations();
+                var sameConfiguration = service.GetConfigurationById(configuration.ID);
+                service.DeleteConfiguration(configuration);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

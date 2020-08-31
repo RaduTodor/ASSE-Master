@@ -138,7 +138,8 @@ namespace Auction_Application.Services.Implementation
         /// <returns>List of auctions.</returns>
         public IList<Auction> GetListOfAuctionsSoldBy(Person person)
         {
-            return DataServices.GetAllAuctions().Where(a => a.Person.ID == person.ID).ToList();
+            var auctions = DataServices.GetAllAuctions();
+            return auctions.Where(a => a.OWNER_ID == person.ID).ToList();
         }
 
         /// <summary>

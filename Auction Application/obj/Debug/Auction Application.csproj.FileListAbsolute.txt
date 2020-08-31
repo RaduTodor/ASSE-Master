@@ -1,6 +1,7 @@
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Auction Application.exe.config
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Auction Application.exe
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Auction Application.pdb
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Castle.Core.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\EntityFramework.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\FluentValidation.dll
@@ -20,6 +21,7 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsof
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Logging.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Options.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Moq.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Buffers.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Collections.Immutable.dll
@@ -29,6 +31,7 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.M
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Castle.Core.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\EntityFramework.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\FluentValidation.xml
@@ -48,6 +51,7 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsof
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Options.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Moq.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.pdb
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\nunit.framework.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Buffers.xml
@@ -57,12 +61,8 @@ C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.M
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csprojAssemblyReference.cache
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csproj.CoreCompileInputs.cache
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csproj.CopyComplete
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.exe
 C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.pdb
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Castle.Core.dll
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Moq.dll
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Castle.Core.xml
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\bin\Debug\Moq.xml
-C:\Users\todor\source\repos\ASSE Restanta\Auction Application\obj\Debug\Auction Application.csprojAssemblyReference.cache

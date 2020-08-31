@@ -65,7 +65,7 @@ namespace Auction_Application.DomainModels.Validators
         /// </summary>
         public void UpdateValidator()
         {
-            RuleFor(x => x.DATE_END).GreaterThan(DateTime.Now).WithErrorCode("The auction has been finished and cannot be modified anymore.");
+            RuleFor(x => x.DATE_END).GreaterThan(DateTime.Now.AddMinutes(-1)).WithErrorCode("The auction has been finished and cannot be modified anymore.");
         }
 
         /// <summary>
@@ -129,6 +129,11 @@ namespace Auction_Application.DomainModels.Validators
         /// <returns>The <see cref="bool"/>.</returns>
         private bool AuctionsUnfinished(Person person)
         {
+            if (person == null)
+            {
+                return false;
+            }
+
             var auctions = this.auctionService.GetListOfAuctionsSoldBy(person);
             if (auctions.Count(a => a.DATE_END > DateTime.Now) > this.configurationService.GetConfigurationById(ConfigurationIdentifiers.MaxAuctionsUnfinished).VALUE)
             {

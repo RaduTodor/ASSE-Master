@@ -50,7 +50,17 @@ namespace Auction_Application.DataMappers.ServiceImplementations
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                return context.Auctions.Select(Auction => Auction).ToList();
+                var auctions = context.Auctions.Select(Auction => Auction).ToList();
+                foreach (Auction auction in auctions)
+                {
+                    auction.Product = context.Products.Where(product => product.ID == auction.PRODUCT_ID).SingleOrDefault();
+                    if (auction.Product.PARENT_CATEGORY_ID != null)
+                    {
+                        auction.Product.Category = context.Categories.Where(category => category.ID == (int)auction.Product.PARENT_CATEGORY_ID).SingleOrDefault();
+                    }
+                }
+
+                return auctions;
             }
         }
 

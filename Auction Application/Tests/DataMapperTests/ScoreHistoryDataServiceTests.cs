@@ -4,7 +4,9 @@
 
 namespace ASSE_Restanta.DataMapperTests
 {
+    using System;
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
     using Moq;
     using NUnit.Framework;
@@ -93,6 +95,36 @@ namespace ASSE_Restanta.DataMapperTests
             obj.GetScore_HistoryById(1);
 
             mock.Verify(o => o.GetScore_HistoryById(1), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddScore_HistoryImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddScore_HistoryImplementationTest()
+        {
+            Score_History score_History = new Score_History()
+            {
+                Person = new Person { ID = 1, FIRST_NAME = "Radu", LAST_NAME = "Todor", Role = new Role { ID = 3 }, SCORE = 11.00m, ROLE_ID = 3 },
+                SCORE = 5.3m,
+                DATE = DateTime.Now,
+                PERSON_ID = 1,
+            };
+
+            Score_HistoryDataService service = new Score_HistoryDataService();
+            try
+            {
+                service.AddScore_History(score_History);
+                score_History.SCORE = 6.6m;
+                service.UpdateScore_History(score_History);
+                var people = service.GetAllScore_Histories();
+                var sameScore_History = service.GetScore_HistoryById(score_History.ID);
+                service.DeleteScore_History(score_History);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

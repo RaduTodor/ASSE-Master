@@ -10,6 +10,7 @@ namespace ASSE_Restanta.Tests.ServiceTests
     using Auction_Application.DomainModels;
     using Auction_Application.Services.Implementation;
     using Auction_Application.Services.Interfaces;
+    using Auction_Application.Utility;
     using Moq;
     using NUnit.Framework;
 
@@ -24,9 +25,10 @@ namespace ASSE_Restanta.Tests.ServiceTests
         [Test]
         public void TestAddConfigurationWithValidData()
         {
+            var randomConfigIdValue = RandomGenerators.RandomString(10);
             Configuration configuration = new Configuration()
             {
-                ID = "Configs",
+                ID = randomConfigIdValue,
                 VALUE = 5000,
             };
 

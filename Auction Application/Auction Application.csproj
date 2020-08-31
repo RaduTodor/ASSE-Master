@@ -228,7 +228,9 @@
     <Compile Include="Tests\ServiceTests\RoleServiceTests.cs" />
     <Compile Include="Tests\ServiceTests\ProductServiceTests.cs" />
     <Compile Include="Tests\ServiceTests\PersonServiceTests.cs" />
+    <Compile Include="Tests\UtilityTests.cs" />
     <Compile Include="Utility\Extensions.cs" />
+    <Compile Include="Utility\RandomGenerators.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

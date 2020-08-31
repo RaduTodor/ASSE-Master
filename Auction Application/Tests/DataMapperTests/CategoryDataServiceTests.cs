@@ -5,6 +5,7 @@
 namespace ASSE_Restanta.DataMapperTests
 {
     using Auction_Application.DataMappers.Interfaces;
+    using Auction_Application.DataMappers.ServiceImplementations;
     using Auction_Application.DomainModels;
     using Moq;
     using NUnit.Framework;
@@ -93,6 +94,33 @@ namespace ASSE_Restanta.DataMapperTests
             obj.GetCategoryById(1);
 
             mock.Verify(o => o.GetCategoryById(1), Times.Once());
+        }
+
+        /// <summary>
+        /// The AddCategoryImplementationTest.
+        /// </summary>
+        [Test]
+        public void AddCategoryImplementationTest()
+        {
+            Category category = new Category
+            {
+                NAME = "Computers",
+            };
+
+            CategoryDataService service = new CategoryDataService();
+            try
+            {
+                service.AddCategory(category);
+                category.NAME = "Laptops";
+                service.UpdateCategory(category);
+                var people = service.GetAllCategories();
+                var sameCategory = service.GetCategoryById(category.ID);
+                service.DeleteCategory(category);
+            }
+            catch
+            {
+                throw;
+            }
         }
     }
 }

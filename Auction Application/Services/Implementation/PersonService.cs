@@ -14,6 +14,7 @@ namespace Auction_Application.Services.Implementation
     using Auction_Application.DomainModels.Validators;
     using Auction_Application.Services.Interfaces;
     using Auction_Application.Utility;
+    using Castle.Core.Internal;
     using FluentValidation.Results;
 
     /// <summary>
@@ -57,7 +58,11 @@ namespace Auction_Application.Services.Implementation
         /// <returns>The person.</returns>
         public bool AddPerson(Person person)
         {
-            person.SCORE = this.configurationService.GetConfigurationById(ConfigurationIdentifiers.InitialScoreValue).VALUE;
+            if (person != null)
+            {
+                person.SCORE = this.configurationService.GetConfigurationById(ConfigurationIdentifiers.InitialScoreValue).VALUE;
+            }
+
             var validator = new PersonValidator();
             ValidationResult results = validator.Validate(person);
 
@@ -139,7 +144,15 @@ namespace Auction_Application.Services.Implementation
                 {
                     var scores = this.scoreHistoryService.GetListOfScoreHistories().Where(s => s.PERSON_ID == person.ID);
                     var range = this.configurationService.GetConfigurationById(ConfigurationIdentifiers.ScoreAverageRangeValue).VALUE;
-                    newScore = scores.TakeLast(Math.Min(scores.Count(), range)).Average(a => a.SCORE);
+                    var oldScores = scores.TakeLast(Math.Min(scores.Count(), range));
+                    if (!oldScores.IsNullOrEmpty())
+                    {
+                        newScore = oldScores.Average(a => a.SCORE);
+                    }
+                    else
+                    {
+                        newScore = (person.SCORE + newScore) / 2;
+                    }
                 }
 
                 this.scoreHistoryService.AddScoreHistory(new Score_History { SCORE = newScore, DATE = DateTime.Now, PERSON_ID = person.ID });
